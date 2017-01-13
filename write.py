@@ -2,6 +2,7 @@
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
+import os
 
 #清洗掉数据中的垃圾，该函数只针对columns_text，看起来是个失败
 def get_plain_text(ResultSet):
@@ -37,8 +38,7 @@ def select_data(page_source):
 
         df = pd.DataFrame(user_information,columns = columns_text) #使用pandas储存数据
         # df.to_csv(group_name[group_i]+'-'+date+'-'page_now+'.csv',index=False) #每采集完一日的一组后，存储一次
-        # df.to_csv(str(page_now)+'.csv',index=False) #每采集完一日的一组后，存储一次
-        df.to_csv(str(page_now)+'.csv',index=False)
+        df.to_csv('file/'+str(page_now)+'.csv',index=False) #每采集完一日的一组后，存储一次
     return "存储成功"
 
 if __name__ == "__main__":
