@@ -24,7 +24,6 @@ def process_data(threadName,Date,GroupType):
         print "%s processing %s的%s页\n" % (threadName,Date, data)
         url = "http://spds.qhrb.com.cn/SP10/SPOverSee1.aspx"
 
-        #要加上一个参数用来判断哪一组，还待完善!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         payload = GetPostPacket.getGroupPayload(data,Date,GroupType)
         headers = GetPostPacket.getGroupHeaders(GroupType)
 

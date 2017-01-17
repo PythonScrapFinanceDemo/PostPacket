@@ -4,11 +4,11 @@ import pandas as pd
 import requests
 import postpacketpayload as GetPostPacket
 
-#清洗掉数据中的垃圾，该函数只针对columns_text，看起来是个失败
+#功能:将BeautifulSoup解析得到的标题对象转换为一个列表
 def get_plain_text(ResultSet):
     text = []
     for i in ResultSet:
-        text.append(i.get_text().split()[0])    #因为split()返回的是字符串列表，所以要加[0]
+        text.append(i.get_text().split()[0])
     return text
 
 #读取数据，提取并清洗数据，最后装入user_information中
@@ -37,8 +37,8 @@ def select_data(page_source,Date,GroupType):
         page_now = int(bsObj.find('select',id="AspNetPager1_input").find('option',selected="true").get_text())
 
         df = pd.DataFrame(user_information,columns = columns_text) #使用pandas储存数据
-        # df.to_csv(group_name[group_i]+'-'+date+'-'page_now+'.csv',index=False) #每采集完一日的一组后，存储一次
-        df.to_csv('file/'+GroupType+'-'+Date+'-'+str(page_now)+'.csv',index=False) #每采集完一日的一组后，存储一次
+        df.to_csv('file/'+GroupType+'/'+GroupType+'-'+Date+'-'+str(page_now)+'.csv',index=False) #每采集完一日的一组后，存储一次
+        #df.to_csv('file/'+GroupType+'-'+Date+'-'+str(page_now)+'.csv',index=False) #每采集完一日的一组后，存储一次
     return "存储成功"
 
 if __name__ == "__main__":

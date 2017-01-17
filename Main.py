@@ -4,7 +4,12 @@ from  OneGroupMain import GetOneGroup
 
 def main():
    index = 0
-   GroupList = ['QingLiangZu','ZhongLiangZu','JiJinZu','ChengXuHuaZu','JinRongQiHou','YouSeJinShu','GuiJinShu','NongChanPin','NengYuanHuaGong','JingLiRun']
+   GroupList = ['QingLiangZu','ZhongLiangZu','JiJinZu','ChengXuHuaZu','JinRongQiHuo','YouSeJinShu','GuiJinShu','NongChanPin','NengYuanHuaGong','JingLiRun']
+   #GroupList = ['JinRongQiHuo','YouSeJinShu','GuiJinShu','NongChanPin','NengYuanHuaGong','JingLiRun']
+   #GroupList = ['QingLiangZu']
+   #GroupList = ['NengYuanHuaGong']
+   #GroupList = ['JingLiRun']
+
    try:
       for GroupType in GroupList:
            print "开始进行"+GroupType+"的抓取和存储工作"

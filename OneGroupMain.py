@@ -6,10 +6,12 @@ from Threading import myThread
 
 def GetOneGroup(GroupType):
     total_start =time.clock()
-    Datelist = date_list.get_date_list('2016-04-01','2016-05-01')
+    Datelist = date_list.get_date_list('2016-04-01','2016-09-30')
     for Date in Datelist:
         TotalPageNmber = GetTotalPageNumber.getOneDayTotalPageNumber(Date,GroupType)
         nameList = [i for i in  range(1,int(TotalPageNmber)+1)]
+        #nameList = [i for i in  range(100,int(TotalPageNmber)+1)]
+        #nameList = [i for i in  range(1,100)]
         threadList  = ["thread-" + str(n) for n in nameList]
         threadID = 1
         # 创建新线程
